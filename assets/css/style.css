@@ -59,3 +59,7 @@ form {
     height: 200px;
     border-style: solid;
   }
+
+  .weather-icon {
+    width: 50px;
+  }

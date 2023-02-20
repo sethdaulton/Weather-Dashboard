@@ -22,30 +22,39 @@
         <button id="js-search-btn">Search</button>
     </div>
 
-    <div id="current-city">
-  
+    <div id="currentCity">
 
       <!-- //Display current city weather here.  -->
-      
     </div>
 
   <div class="day-card">
-
   </div>
   <div class="day-card">
-    
   </div>
   <div class="day-card">
-    
   </div>
   <div class="day-card">
-    
   </div>
   <div class="day-card">
-    
   </div>
     <div class="five-day-forecast"></div>
-    <script src="assets/js/script.js"></script>
+    <script src="assets/js/script.js">
+
+      //Start added in code from tutorial video
+
+      const currentCity = document.getElementById('currentCity');
+
+      const strong = document.createElement('strong');
+      const em = document.createElement('em');
+
+      strong.textContent = 'strong';
+      em.textContent = 'emphasized';
+
+      currentCity.append(strong, em);
+
+      // Tutorial video code ends
+
+    </script>
   </body>
 </html>
 

@@ -28,6 +28,7 @@ function fetchCityCoordinates(city) {
 
 // Added in code below from Amber. Weather info shows up but then disappears
 
+// Daily forecast. Need Today + five additional days
       var currentWeather = document.getElementById('currentCity');
       var cityName = data.name;
       var currentTemp = data.main.temp;
@@ -41,15 +42,15 @@ function fetchCityCoordinates(city) {
 
       currentWeather.append(cityName, " ", currentTemp, " ", windSpeed, " ", description, " ", image);
 
-      console.log(data);
-      console.log("name", data.name);
-      console.log("current temp", data.main.temp);
-      console.log("wind speed", data.wind.speed);
-      console.log(
-        "weather desc and icon",
-        data.weather[0].description,
-        data.weather[0].icon,
-      );
+      // console.log(data);
+      // console.log("name", data.name);
+      // console.log("current temp", data.main.temp);
+      // console.log("wind speed", data.wind.speed);
+      // console.log(
+      //   "weather desc and icon",
+      //   data.weather[0].description,
+      //   data.weather[0].icon,
+      // );
       var cityLat = data.coord.lat;
       var cityLong = data.coord.lon;
       fetchCityWeather(cityLat, cityLong);
@@ -71,24 +72,42 @@ function fetchCityWeather(lat, long) {
     })
     .then(function (data) {
       console.log(data);
-      console.log(data.city);
-      var currentCity = document.getElementById("currentCity");
-      // document.getElementById("current-city");
-      console.log(document.getElementById("currentCity"));
-      currentCity.innerHTML = data.city.name;
-      var cityName = data.city.name;
-      var date = data.list[0].dt_txt;
+      console.log(data.list[0]);
       console.log(date);
-      var weatherIcon =
-        "http://openweathermap.org/img/wn/" +
-        data.list[0].weather[0].icon +
-        "@2x.png";
-      console.log(weatherIcon);
-      var weatherIconEl = document.createElement("img");
-      weatherIconEl.src = weatherIcon;
-      weatherIconEl.setAttribute("class", "weather-icon");
-      console.log(weatherIconEl);
-      currentCity.appendChild(weatherIconEl);
+
+      // Day one through day 5 append all to five day div
+
+      var fiveDay = document.querySelector(".five-day-forecast")
+
+      // create loop different dates
+
+      var date = data.list[0].dt_txt;
+      var temperature = data.list[0].main.temp
+      var windSpeed = data.list[0].wind.speed
+      var humidity = data.list[0].main.humidity
+      var icon = "https://openweathermap.org/img/w/" + data.list[0].weather[0].icon + ".png"
+      var description = data.list[0].weather[0].description;
+      var image = document.createElement("img");
+      image.src = icon;
+
+      fiveDay.append("Date: ", date, " ", "Temperature: ", temperature, " ","Wind Speed :", windSpeed, " ", "Humidity :", humidity, " ", description, " ", image, ""); 
+      // var currentCity = document.getElementById("currentCity");
+      // document.getElementById("current-city");
+      // console.log(document.getElementById("currentCity"));
+      // currentCity.innerHTML = data.city.name;
+      // var cityName = data.city.name;
+      // var date = data.list[0].dt_txt;
+      // console.log(date);
+      // var weatherIcon =
+      //   "http://openweathermap.org/img/wn/" +
+      //   data.list[0].weather[0].icon +
+      //   "@2x.png";
+      // console.log(weatherIcon);
+      // var weatherIconEl = document.createElement("img");
+      // weatherIconEl.src = weatherIcon;
+      // weatherIconEl.setAttribute("class", "weather-icon");
+      // console.log(weatherIconEl);
+      // currentCity.appendChild(weatherIconEl);
 
 
     });

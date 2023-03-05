@@ -31,6 +31,7 @@ function fetchCityCoordinates(city) {
     })
     .then(function (data) {
 
+      var city = localStorage.getItem("city");
 
       var currentWeather = document.getElementById('currentCity');
       var cityName = data.name;
@@ -45,7 +46,7 @@ function fetchCityCoordinates(city) {
       image.src = icon;
 
       const currentWeatherCard = document.createElement('div')
-      var heading = document.createElement('h2');
+      var heading = document.createElement('h1');
       var tempEl = document.createElement('p');
       var windEl = document.createElement('p');
       var humidityEl = document.createElement('p');
@@ -61,6 +62,9 @@ function fetchCityCoordinates(city) {
       var cityLat = data.coord.lat;
       var cityLong = data.coord.lon;
       fetchCityWeather(cityLat, cityLong);
+
+      userCitySpan.textContent = city;
+
     });
 }
 
@@ -111,14 +115,13 @@ function fetchCityWeather(lat, long) {
 
 function renderForecastCard(forecastObj) {
   console.log(forecastObj)
+
   const card = document.createElement('div')
   const date = document.createElement('h2')
   const temperature = document.createElement('p')
   const humidity = document.createElement('p')
   const windSpeed = document.createElement('p')
 
-  // tempEl.textContent = `Temp: ${currentTemp} F`
-  
   date.textContent = dayjs(forecastObj.dt_txt).format('MM/DD/YYYY')
   temperature.textContent = `Temp: ${forecastObj.main.temp} F`;
   humidity.textContent = `Humidity: ${forecastObj.main.humidity} %`;

@@ -6,7 +6,11 @@ h1 {
 h2 {
     font-size: 20px;
     font-family:Arial, Helvetica, sans-serif;
-    font-weight: normal;
+    font-weight: bold;
+}
+
+p {
+  font-family:Arial, Helvetica, sans-serif;
 }
 
 .header {
@@ -37,19 +41,36 @@ form {
     padding: 6px 10px;
   }
 
-  .currentCity {
-    width: 800px;
-    display: flex;
-    height: 1000px;
-    border-style: black, solid, 2px;
-    background: yellow;
+  #currentCity {
+    width: 400px;
+    height: 200px;
+    display: inline-block;
+    border-style: solid;    
+    padding: 20px;
   }
 
-  .five-day-forecast {
-    width: 500px;
+  #five-day-forecast {
+    width: 300px;
+    height: 300px;
+    height: 1500px;
+    border-style: solid;
+    border-color: blue;    
+    padding: 20px;
     display: inline-block;
-    height: 200px;
-    border-style: solid, black, 2px;
+  }
+
+  #js-search-input {
+    width: 200px;
+    display: flex;
+  }
+
+  #searchBoxMain {
+    display: inline-block;
+    width: 300px;
+  }
+
+  #mainCity {
+    display: flex;
   }
 
   .weather-icon {

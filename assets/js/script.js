@@ -31,7 +31,7 @@ function fetchCityCoordinates(city) {
     })
     .then(function (data) {
 
-      var city = localStorage.getItem("city");
+      var city = localStorage.getItem("currentcity");
 
       var currentWeather = document.getElementById('currentCity');
       var cityName = data.name;
@@ -66,6 +66,20 @@ function fetchCityCoordinates(city) {
       userCitySpan.textContent = city;
 
     });
+}
+
+function renderLastCity() {
+  var city = localStorage.getItem("city");
+
+  if (!city) {
+    return;
+  }
+
+  userCitySpan.textContent = city;
+
+  const displayCity = document.createElement('p')
+  card.append(displayCity)
+
 }
 
 // Need a function to fetch city weather

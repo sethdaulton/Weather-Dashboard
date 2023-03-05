@@ -52,7 +52,7 @@ form {
   #five-day-forecast {
     width: 300px;
     height: 300px;
-    height: 1500px;
+    height: 1100px;
     border-style: solid;
     border-color: blue;    
     padding: 20px;
@@ -61,6 +61,7 @@ form {
 
   #js-search-input {
     width: 200px;
+    background: rgb(224, 224, 224);
     display: flex;
   }
 

@@ -54,7 +54,7 @@ function fetchCityCoordinates(city) {
       heading.append(image);
 
       tempEl.textContent = `Temp: ${currentTemp} F`
-      windEl.textContent = `Wind: ${windSpeed} mph`
+      windEl.textContent = `Wind Speed: ${windSpeed} mph`
       humidityEl.textContent = `Humidity: ${humidity}%`
       
       currentWeather.append(currentWeatherCard, heading, tempEl, windEl, humidityEl);
@@ -82,7 +82,6 @@ function renderLastCity() {
 
 }
 
-// Need a function to fetch city weather
 function fetchCityWeather(lat, long) {
   var requestUrl =
     "https://api.openweathermap.org/data/2.5/forecast?units=imperial&lat=" +
@@ -96,7 +95,6 @@ function fetchCityWeather(lat, long) {
       return response.json();
     })
     .then(function (data) {
-      // console.log(data);
     
       const listOfForecasts = data.list;
       console.log(listOfForecasts);
@@ -138,9 +136,9 @@ function renderForecastCard(forecastObj) {
 
   date.textContent = dayjs(forecastObj.dt_txt).format('MM/DD/YYYY')
   temperature.textContent = `Temp: ${forecastObj.main.temp} F`;
-  humidity.textContent = `Humidity: ${forecastObj.main.humidity} %`;
   windSpeed.textContent = `Wind Speed: ${forecastObj.wind.speed} mph`;
-  
+  humidity.textContent = `Humidity: ${forecastObj.main.humidity} %`;
+
   var icon = "https://openweathermap.org/img/w/" + forecastObj.weather[0].icon + ".png"
 
   const iconImage = document.createElement('img')
@@ -149,8 +147,8 @@ function renderForecastCard(forecastObj) {
   card.append(date)
   card.append(iconImage)
   card.append(temperature)
-  card.append(humidity)
   card.append(windSpeed)
+  card.append(humidity)
 
   fiveDay.append(card)
 

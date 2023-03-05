@@ -18,16 +18,6 @@ h2 {
     padding-top: 1px;
 }
 
-.sidebar {
-    height: 100%;
-    width: 300px;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding-top: 40px;
-    background-color: rgb(117, 117, 117);
-}
-
 form {
     background-color: blue;
     width: 300px;
@@ -47,18 +37,19 @@ form {
     padding: 6px 10px;
   }
 
-  .current-city {
+  .currentCity {
     width: 800px;
     display: flex;
-    height: 200px;
-    border-style: solid;
+    height: 1000px;
+    border-style: black, solid, 2px;
+    background: yellow;
   }
 
   .five-day-forecast {
     width: 500px;
     display: inline-block;
     height: 200px;
-    border-style: solid;
+    border-style: solid, black, 2px;
   }
 
   .weather-icon {

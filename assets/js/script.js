@@ -131,7 +131,7 @@ function fetchCityWeather(lat, long) {
       // var tempEl2 = document.createElement('p');
       // var windEl2 = document.createElement('p');
       // var humidityEl2 = document.createElement('p');
-      heading2.textContent = `${cityName} ${date}`
+      // heading2.textContent = `${cityName} ${date}`
       // heading2.append(image);
 
       // // tempEl2.textContent = `Temp: ${currentTemp} F`
@@ -149,14 +149,14 @@ function fetchCityWeather(lat, long) {
       var temperature2 = data.list[7].main.temp
       var windSpeed2 = data.list[7].wind.speed
       var humidity2 = data.list[7].main.humidity
-      var icon = "https://openweathermap.org/img/w/" + data.list[7].weather[7].icon + ".png"
+      // var icon = "https://openweathermap.org/img/w/" + data.list[7].weather[7].icon + ".png"
       var image = document.createElement("img");
       image.src = icon;
 
-      fiveDay.append(date, " ", "Temperature: ", temperature, " ","Wind Speed :", 
-      windSpeed, " ", "Humidity :", humidity, " ", image, "",
-      "Date: ", date2, " ", image, "", "Temperature: ", temperature2, " ","Wind Speed :", 
-      windSpeed2, " ", "Humidity :", humidity2, " ", ); 
+      // fiveDay.append(date, " ", "Temperature: ", temperature, " ","Wind Speed :", 
+      // windSpeed, " ", "Humidity :", humidity, " ", image, "",
+      // "Date: ", date2, " ", image, "", "Temperature: ", temperature2, " ","Wind Speed :", 
+      // windSpeed2, " ", "Humidity :", humidity2, " ", ); 
       // var currentCity = document.getElementById("currentCity");
       // document.getElementById("current-city");
       // console.log(document.getElementById("currentCity"));
@@ -186,11 +186,13 @@ function renderForecastCard(forecastObj) {
   const temperature = document.createElement('p')
   const humidity = document.createElement('p')
   const windSpeed = document.createElement('p')
+
+  // tempEl.textContent = `Temp: ${currentTemp} F`
   
   date.textContent = dayjs(forecastObj.dt_txt).format('MM/DD/YYYY')
-  temperature.textContent = forecastObj.main.temp;
-  humidity.textContent = forecastObj.main.humidity;
-  windSpeed.textContent = forecastObj.wind.speed;
+  temperature.textContent = `Temp: ${forecastObj.main.temp} F`;
+  humidity.textContent = `Humidity: ${forecastObj.main.humidity} %`;
+  windSpeed.textContent = `Wind Speed: ${forecastObj.wind.speed} mph`;
   
   var icon = "https://openweathermap.org/img/w/" + forecastObj.weather[0].icon + ".png"
 

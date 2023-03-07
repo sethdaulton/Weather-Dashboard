@@ -11,10 +11,13 @@ var searchBtn = document.getElementById("js-search-btn");
 
 var fiveDay = document.getElementById("five-day-forecast")
 
+var searchName = localStorage.getItem("city name");
+
 // Need a function to fetch the forecast from a given location
 function fetchForecast() {
   var cityName = searchInputEl.value;
   fetchCityCoordinates(cityName);
+  localStorage.setItem("city name", cityName)
 }
 
 // Need a function to fetch city coordinates

@@ -6,7 +6,7 @@ For this assignment I was tasked with creating a weather dashboard. The dashboar
 
 ## Screenshot
 
-![alt text](./assets/images/WeatherDashboard.png)
+![alt text](./assets/images/WeatherDashboard2.png)
 
 ## Link to deployed application 
 

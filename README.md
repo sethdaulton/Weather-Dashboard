@@ -14,6 +14,13 @@ No installation is required to run this app. All the user needs to do is to clic
 
 https://sethdaulton.github.io/Weather-Dashboard/
 
+## Technologies Used
+
+* HTML
+* CSS
+* Javascript
+* Web API
+
 ## Screenshot
 
 ![alt text](./assets/images/WeatherDashboard2.png)
